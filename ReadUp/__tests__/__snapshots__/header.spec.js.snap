@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#0f4c75",
+      "height": "15%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#bbe1fa",
+        "fontSize": 25,
+        "padding": "18%",
+        "textAlign": "center",
+      }
+    }
+  >
+    ReadUp
+  </Text>
+</View>
+`;
