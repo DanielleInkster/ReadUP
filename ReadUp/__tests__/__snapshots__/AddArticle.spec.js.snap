@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Enter URL"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "backgroundColor": "#bbe1fa",
+        "borderColor": "#1b262c",
+        "borderStyle": "solid",
+        "borderWidth": 1.5,
+        "fontSize": 16,
+        "height": 60,
+        "marginHorizontal": 5,
+        "marginTop": "5%",
+        "padding": 8,
+      }
+    }
+    testID="messageText"
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0f4c75",
+          "height": 40,
+          "justifyContent": "center",
+          "marginHorizontal": "5%",
+          "marginVertical": "2%",
+          "opacity": 1,
+          "padding": 9,
+          "width": "40%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#bbe1fa",
+            "fontSize": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 15,
+              },
+              undefined,
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+          Add Article
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0f4c75",
+          "height": 40,
+          "justifyContent": "center",
+          "marginHorizontal": "5%",
+          "marginVertical": "2%",
+          "opacity": 1,
+          "padding": 9,
+          "width": "40%",
+        }
+      }
+      testID="clearButton"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#bbe1fa",
+            "fontSize": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 15,
+              },
+              undefined,
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+          Clear
+      </Text>
+    </View>
+  </View>
+</View>
+`;
