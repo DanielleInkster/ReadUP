@@ -11,24 +11,24 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 Icon.loadFont();
 
 const AddArticle = ({getData}) => {
-  const [text, setText] = useState('');
+  const [articleText, setArticleText] = useState('');
 
-  const onChange = (textValue) => setText(textValue);
+  const onChange = (textValue) => setArticleText(textValue);
 
   return (
     <View>
       <TextInput
-        testID="messageText"
+        value={articleText}
+        testID="inputText"
         placeholder="Enter URL"
         style={styles.input}
         onChangeText={onChange}
-        ref={(input) => {
-          this.textInput = input;
-        }}
       />
 
       <View style={{flexDirection: 'row'}}>
-        <TouchableOpacity style={styles.btn} onPress={() => getData(text)}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => getData(articleText)}>
           <Text style={styles.btnText}>
             <Icon name="plus" size={15} />
             {'  Add Article'}
@@ -38,7 +38,7 @@ const AddArticle = ({getData}) => {
         <TouchableOpacity
           testID="clearButton"
           style={styles.btn}
-          onPress={() => this.textInput.clear()}>
+          onPress={() => setArticleText('')}>
           <Text style={styles.btnText}>
             <Icon name="remove" size={15} />
             {'  Clear'}
