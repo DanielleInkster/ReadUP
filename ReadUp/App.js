@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Header from './src/components/Header';
-import AddArticle from './src/components/AddArticle';
+import Edit from './src/containers/Edit';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <AddArticle />
+      <Edit />
     </View>
   );
 }

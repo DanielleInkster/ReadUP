@@ -4,17 +4,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
-const ArticleView = ({article, deleteArticle}) => {
+const ArticleView = () => {
   return (
     <TouchableOpacity style={styles.articleItem}>
       <View style={styles.articleItemView}>
-        <Text style={styles.text}>{article.text}</Text>
+        <Text style={styles.text}>Herro!</Text>
         <Icon
           testID="removeArticle"
           name="remove"
           size={20}
           color="firebrick"
-          onPress={() => deleteArticle(article.id)}
         />
       </View>
     </TouchableOpacity>
