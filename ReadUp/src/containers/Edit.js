@@ -50,6 +50,7 @@ export default function Edit() {
     }
     return description;
   }
+
   return (
     <View style={styles.container}>
       <EditView getData={getData} />
