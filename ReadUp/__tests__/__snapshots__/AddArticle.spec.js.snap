@@ -54,6 +54,7 @@ exports[`renders correctly 1`] = `
           "width": "40%",
         }
       }
+      testID="addButton"
     >
       <Text
         style={

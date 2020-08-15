@@ -14,6 +14,7 @@ export default function Edit() {
     const type = doc("meta[property='og:type']").attr('content');
     checkType(type);
     console.log(title, description, type);
+    return `${title}\n${description}\n${type}`;
   }
 
   function checkType(type) {

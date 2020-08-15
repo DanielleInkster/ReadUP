@@ -27,6 +27,7 @@ const AddArticle = ({getData}) => {
 
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
+          testID="addButton"
           style={styles.btn}
           onPress={() => getData(articleText)}>
           <Text style={styles.btnText}>

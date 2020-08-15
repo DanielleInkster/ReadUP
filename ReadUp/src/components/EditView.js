@@ -1,16 +1,15 @@
 import React from 'react';
-import ArticleView from './ArticleView';
+// import ArticleView from './ArticleView';
 import AddArticle from './AddArticle';
 import {StyleSheet, View, FlatList} from 'react-native';
 
-const EditView = ({getData, articles}) => {
+const EditView = ({getData}) => {
   return (
     <View style={styles.container}>
       <AddArticle getData={getData} />
       <FlatList
         style={styles.list}
-        data={articles}
-        renderItem={({item}) => <ArticleView article={item} />}
+        /* renderItem={({item}) => <ArticleView article={item} />} */
       />
     </View>
   );
