@@ -1,23 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 import EditView from '../components/EditView';
 import {View, StyleSheet, Alert} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
-export default function Edit() {
-  async function getData(text) {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#3282b8',
+  },
+});
+
+class Edit extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  async getData(text) {
     const searchUrl = text;
     const response = await fetch(searchUrl); // fetch page
     const htmlString = await response.text(); // get response text
     const doc = Cheerio.load(htmlString); // parse HTML string
     const title = doc("meta[property='og:title']").attr('content');
-    const description = getDescription(doc);
+    const description = this.getDescription(doc);
     const type = doc("meta[property='og:type']").attr('content');
-    checkType(type);
+    this.checkType(type);
     console.log(title, description, type);
     return `${title}\n${description}\n${type}`;
   }
 
-  function checkType(type) {
+  checkType(type) {
     if (type === undefined) {
       Alert.alert(
         'Hmmm...',
@@ -35,7 +47,7 @@ export default function Edit() {
     }
   }
 
-  function getDescription(input) {
+  getDescription(input) {
     let description = '';
 
     if (
@@ -52,16 +64,13 @@ export default function Edit() {
     return description;
   }
 
-  return (
-    <View style={styles.container}>
-      <EditView getData={getData} />
-    </View>
-  );
+  render() {
+    return (
+      <View style={styles.container}>
+        <EditView getData={this.getData} />
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#3282b8',
-  },
-});
+export default Edit;

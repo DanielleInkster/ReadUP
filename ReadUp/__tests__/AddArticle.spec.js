@@ -1,7 +1,6 @@
 import React from 'react';
 import {render, fireEvent} from 'react-native-testing-library';
 import AddArticle from '../src/components/AddArticle';
-import Alert from 'react-native';
 
 import renderer from 'react-test-renderer';
 
@@ -22,18 +21,12 @@ describe('AddArticle', () => {
   });
 
   describe('clicking Add Article', () => {
-    const fakeCall = jest.fn()
-    const {getByTestId} = render(<AddArticle getData={fakeCall}/>);
-    fireEvent.changeText(getByTestId('inputText'), 'www.google.com');
-    fireEvent.press(getByTestId('addButton'));
-    expect(fakeCall).toHaveBeenCalled();
+    it('runs getData function', () => {
+      const fakeCall = jest.fn();
+      const {getByTestId} = render(<AddArticle getData={fakeCall} />);
+      fireEvent.changeText(getByTestId('inputText'), 'www.google.com');
+      fireEvent.press(getByTestId('addButton'));
+      expect(fakeCall).toHaveBeenCalled();
+    });
   });
 });
-
-// describe('clicking Add Article', () => {
-//   const { getByTestId } = render(<AddArticle />);
-//   fireEvent.changeText(getByTestId('inputText'), 'www.google.com');
-//   fireEvent.press(getByTestId('addButton'));
-//   expect(Alert).toHaveBeenCalled();
-// });
-// });
