@@ -3,13 +3,6 @@ import EditView from '../components/EditView';
 import {View, StyleSheet, Alert} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#3282b8',
-  },
-});
-
 class Edit extends Component {
   constructor() {
     super();
@@ -66,7 +59,7 @@ class Edit extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <EditView getData={this.getData} />
       </View>
     );
