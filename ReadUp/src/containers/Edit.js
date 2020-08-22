@@ -1,10 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import EditView from '../components/EditView';
-import {View, StyleSheet, Alert} from 'react-native';
+import {DbContext} from '../dB/dBProvider';
+import {View, Alert, StyleSheet} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
 export default function Edit() {
-  async function getData(searchUrl) {
+  const database = useContext(DbContext);
+
+  async function createEntry(title, description, url) {
+    const articlesCollection = database.get('articles');
+    await database.action(async () => {
+      const newArticle = await articlesCollection.create((article) => {
+        article.article_id = 3;
+        article.title = title;
+        article.description = description;
+        article.url = url;
+      });
+      console.log(newArticle);
+    });
+    console.log(database);
+  }
+
+  async function getData(text) {
+    const searchUrl = text;
     const response = await fetch(searchUrl); // fetch page
     const htmlString = await response.text(); // get response text
     const doc = Cheerio.load(htmlString); // parse HTML string
@@ -13,7 +31,7 @@ export default function Edit() {
     const type = doc("meta[property='og:type']").attr('content');
     checkType(type);
     console.log(title, description, type);
-    return `${title}\n${description}\n${type}`;
+    createEntry(title, description, text);
   }
 
   function checkType(type) {
