@@ -2,13 +2,16 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Header from './src/components/Header';
 import Edit from './src/containers/Edit';
+import {DbProvider} from './src/dB/dBProvider';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Header />
-      <Edit />
-    </View>
+    <DbProvider>
+      <View style={styles.container}>
+        <Header />
+        <Edit />
+      </View>
+    </DbProvider>
   );
 }
 
