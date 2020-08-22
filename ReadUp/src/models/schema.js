@@ -6,6 +6,7 @@ export const mySchema = appSchema({
     tableSchema({
       name: 'articles',
       columns: [
+        {name: 'article_id', type: 'number'},
         {name: 'title', type: 'string'},
         {name: 'image', type: 'string'},
         {name: 'url', type: 'string'},
