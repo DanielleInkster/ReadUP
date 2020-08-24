@@ -11,7 +11,6 @@ export default function Edit() {
     const articlesCollection = database.get('articles');
     await database.action(async () => {
       const newArticle = await articlesCollection.create((article) => {
-        article.article_id = 3;
         article.title = title;
         article.description = description;
         article.url = url;
