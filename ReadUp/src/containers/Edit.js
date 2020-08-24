@@ -1,23 +1,21 @@
 import React, {useContext} from 'react';
 import EditView from '../components/EditView';
-import {DbContext} from '../database/DbProvider';
+import {useDatabase} from '@nozbe/watermelondb/hooks';
 import {View, Alert, StyleSheet} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
 export default function Edit() {
-  const database = useContext(DbContext);
+  const database = useDatabase();
+  const articlesCollection = database.get('articles');
 
   async function createEntry(title, description, url) {
-    const articlesCollection = database.get('articles');
     await database.action(async () => {
       const newArticle = await articlesCollection.create((article) => {
         article.title = title;
         article.description = description;
         article.url = url;
       });
-      console.log(newArticle);
     });
-    console.log(database);
   }
 
   async function getData(text) {

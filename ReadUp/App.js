@@ -1,17 +1,18 @@
 import React from 'react';
+import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider';
 import {View, StyleSheet} from 'react-native';
+import {database} from './index.js';
 import Header from './src/components/Header';
 import Edit from './src/containers/Edit';
-import {DbProvider} from './src/database/DbProvider';
 
 export default function App() {
   return (
-    <DbProvider>
+    <DatabaseProvider database={database}>
       <View style={styles.container}>
         <Header />
         <Edit />
       </View>
-    </DbProvider>
+    </DatabaseProvider>
   );
 }
 

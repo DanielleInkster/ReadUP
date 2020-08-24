@@ -1,5 +1,7 @@
 import React from 'react';
 // import ArticleView from './ArticleView';
+import {useDatabase} from '@nozbe/watermelondb/hooks';
+import withObservables from '@nozbe/with-observables';
 import AddArticle from './AddArticle';
 import {StyleSheet, View, FlatList} from 'react-native';
 
