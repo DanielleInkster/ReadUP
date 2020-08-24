@@ -4,6 +4,7 @@ import {field, date} from '@nozbe/watermelondb/decorators';
 export default class Article extends Model {
   static table = 'articles';
 
+  @field('article_id') article_id;
   @field('title') title;
   @field('image') image;
   @field('url') url;
