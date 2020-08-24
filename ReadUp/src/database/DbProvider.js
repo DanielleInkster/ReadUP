@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {Database} from '@nozbe/watermelondb';
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
+import migrations from '../models/migrations';
 import {mySchema} from '../models/schema';
 import {dbModels} from '../models/index.js';
 
 const adapter = new SQLiteAdapter({
   dbName: 'ReadUp',
   schema: mySchema,
+  migrations,
 });
 
 const database = new Database({

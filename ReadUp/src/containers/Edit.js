@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import EditView from '../components/EditView';
-import {DbContext} from '../dB/dBProvider';
+import {DbContext} from '../database/DbProvider';
 import {View, Alert, StyleSheet} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 

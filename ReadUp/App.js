@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Header from './src/components/Header';
 import Edit from './src/containers/Edit';
-import {DbProvider} from './src/dB/dBProvider';
+import {DbProvider} from './src/database/DbProvider';
 
 export default function App() {
   return (
