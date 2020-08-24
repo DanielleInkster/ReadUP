@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import EditView from '../components/EditView';
 import {useDatabase} from '@nozbe/watermelondb/hooks';
 import {View, Alert, StyleSheet} from 'react-native';
@@ -15,6 +15,12 @@ export default function Edit() {
         article.description = description;
         article.url = url;
       });
+    });
+  }
+
+  async function deleteEntry(article) {
+    await database.action(async () => {
+      await article.destroyPermanently();
     });
   }
 
@@ -65,7 +71,7 @@ export default function Edit() {
   }
   return (
     <View style={styles.container}>
-      <EditView getData={getData} />
+      <EditView getData={getData} deleteEntry={deleteEntry} />
     </View>
   );
 }

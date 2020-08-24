@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
-const ArticleView = ({article}) => {
+const ArticleView = ({article, deleteEntry}) => {
   return (
     <TouchableOpacity style={styles.articleItem}>
       <View style={styles.articleItemView}>
@@ -13,6 +13,7 @@ const ArticleView = ({article}) => {
           {article.title.substring(0, 30).trim()}...
         </Text>
         <Icon
+          onPress={() => deleteEntry(article)}
           testID="removeArticle"
           name="remove"
           size={20}

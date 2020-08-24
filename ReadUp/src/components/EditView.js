@@ -6,7 +6,7 @@ import AddArticle from './AddArticle';
 import {StyleSheet, View} from 'react-native';
 import {List, ListItem, Body} from 'native-base';
 
-const EditView = ({getData, articles}) => {
+const EditView = ({getData, deleteEntry, articles}) => {
   return (
     <View style={styles.container}>
       <AddArticle getData={getData} />
@@ -14,7 +14,7 @@ const EditView = ({getData, articles}) => {
         {articles.map((article) => (
           <ListItem key={article.id}>
             <Body>
-              <ArticleView article={article} />
+              <ArticleView article={article} deleteEntry={deleteEntry} />
             </Body>
           </ListItem>
         ))}
