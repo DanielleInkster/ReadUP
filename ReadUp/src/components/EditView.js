@@ -6,10 +6,10 @@ import AddArticle from './AddArticle';
 import {StyleSheet, View} from 'react-native';
 import {List, ListItem, Body} from 'native-base';
 
-const EditView = ({getData, deleteEntry, articles}) => {
+const EditView = ({createEntry, deleteEntry, articles}) => {
   return (
     <View style={styles.container}>
-      <AddArticle getData={getData} />
+      <AddArticle getData={createEntry} />
       <List>
         {articles.map((article) => (
           <ListItem key={article.id}>
