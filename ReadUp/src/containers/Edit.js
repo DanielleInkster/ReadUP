@@ -16,28 +16,21 @@ export default function Edit() {
     return doc;
   }
 
-  function getTitle(doc) {
-    return doc("meta[property='og:title']").attr('content');
-  }
 
-  function getImage(doc) {
-    return doc("meta[property='og:image']").attr('content');
-  }
-
-  function getDescription(input) {
-    let description = '';
+  function getInfo(data, value) {
+    let output = '';
     if (
-      input("meta[property='og:description']").attr('content') !== undefined
+      data("meta[property='og:" + `${value}`+"']").attr('content') !== undefined
     ) {
-      description = input("meta[property='og:description']").attr('content');
+      output = data("meta[property='og:" + `${value}`+"']").attr('content');
     } else if (
-      input("meta[name='description']").attr('content') !== undefined
+      data("meta[name='" + `${value}`+"']").attr('content') !== undefined
     ) {
-      description = input("meta[name='description']").attr('content');
+      output = data("meta[name='" + `${value}` + "']").attr('content');
     } else {
-      description = 'No description available';
+      output = 'No description available';
     }
-    return description;
+    return output;
   }
 
   async function createDBEntry(title, description, img, url) {
@@ -53,9 +46,9 @@ export default function Edit() {
 
   async function createEntry(text) {
     const data = await scrapeData(text);
-    const title = await getTitle(data);
-    const description = await getDescription(data);
-    const img = await getImage(data);
+    const title = await getInfo(data, 'title');
+    const description = await getInfo(data, 'description');
+    const img = await getInfo(data, 'image');
     createDBEntry(title, description, img, text);
   }
 
