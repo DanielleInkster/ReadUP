@@ -8,10 +8,11 @@ export default function Edit() {
   const database = useDatabase();
   const articlesCollection = database.get('articles');
 
-  async function createEntry(title, description, url) {
+  async function createEntry(title, description, img, url) {
     await database.action(async () => {
       const newArticle = await articlesCollection.create((article) => {
         article.title = title;
+        article.img = img;
         article.description = description;
         article.url = url;
       });
@@ -31,29 +32,11 @@ export default function Edit() {
     const doc = Cheerio.load(htmlString); // parse HTML string
     const title = doc("meta[property='og:title']").attr('content');
     const description = getDescription(doc);
-    const type = doc("meta[property='og:type']").attr('content');
-    checkType(type);
-    console.log(title, description, type);
-    createEntry(title, description, text);
+    const img = doc("meta[property='og:image']").attr('content');
+    console.log(img);
+    createEntry(title, description, img, text);
   }
 
-  function checkType(type) {
-    if (type === undefined) {
-      Alert.alert(
-        'Hmmm...',
-        'This link may not be an article. Are you sure you want to add it?',
-        [
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-        ],
-        {cancelable: false},
-      );
-    }
-  }
   function getDescription(input) {
     let description = '';
     if (
