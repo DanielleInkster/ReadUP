@@ -1,71 +1,66 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import EditView from '../components/EditView';
 import {useDatabase} from '@nozbe/watermelondb/hooks';
-import {View, Alert, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
 export default function Edit() {
   const database = useDatabase();
   const articlesCollection = database.get('articles');
 
-  async function createEntry(title, description, url) {
+  async function scrapeData(text) {
+    const searchUrl = text;
+    const response = await fetch(searchUrl); // fetch page
+    const htmlString = await response.text(); // get response text
+    const doc = Cheerio.load(htmlString); // parse HTML string
+    return doc;
+  }
+
+  function getInfo(data, value) {
+    let output = '';
+    if (
+      data("meta[property='og:" + `${value}` + "']").attr('content') !==
+      undefined
+    ) {
+      output = data("meta[property='og:" + `${value}` + "']").attr('content');
+    } else if (
+      data("meta[name='" + `${value}` + "']").attr('content') !== undefined
+    ) {
+      output = data("meta[name='" + `${value}` + "']").attr('content');
+    } else {
+      output = 'No description available';
+    }
+    return output;
+  }
+
+  async function createDBEntry(title, description, img, url) {
     await database.action(async () => {
       const newArticle = await articlesCollection.create((article) => {
         article.title = title;
+        article.img = img;
         article.description = description;
         article.url = url;
       });
     });
   }
 
-  async function getData(text) {
-    const searchUrl = text;
-    const response = await fetch(searchUrl); // fetch page
-    const htmlString = await response.text(); // get response text
-    const doc = Cheerio.load(htmlString); // parse HTML string
-    const title = doc("meta[property='og:title']").attr('content');
-    const description = getDescription(doc);
-    const type = doc("meta[property='og:type']").attr('content');
-    checkType(type);
-    console.log(title, description, type);
-    createEntry(title, description, text);
+  async function createEntry(text) {
+    const data = await scrapeData(text);
+    const title = await getInfo(data, 'title');
+    const description = await getInfo(data, 'description');
+    const img = await getInfo(data, 'image');
+    createDBEntry(title, description, img, text);
   }
 
-  function checkType(type) {
-    if (type === undefined) {
-      Alert.alert(
-        'Hmmm...',
-        'This link may not be an article. Are you sure you want to add it?',
-        [
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-        ],
-        {cancelable: false},
-      );
-    }
+  async function deleteEntry(article) {
+    await database.action(async () => {
+      await article.destroyPermanently();
+    });
   }
-  function getDescription(input) {
-    let description = '';
-    if (
-      input("meta[property='og:description']").attr('content') !== undefined
-    ) {
-      description = input("meta[property='og:description']").attr('content');
-    } else if (
-      input("meta[name='description']").attr('content') !== undefined
-    ) {
-      description = input("meta[name='description']").attr('content');
-    } else {
-      description = 'No description available';
-    }
-    return description;
-  }
+
   return (
     <View style={styles.container}>
-      <EditView getData={getData} />
+      <EditView createEntry={createEntry} deleteEntry={deleteEntry} />
     </View>
   );
 }
