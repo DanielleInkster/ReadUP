@@ -16,15 +16,15 @@ export default function Edit() {
     return doc;
   }
 
-
   function getInfo(data, value) {
     let output = '';
     if (
-      data("meta[property='og:" + `${value}`+"']").attr('content') !== undefined
+      data("meta[property='og:" + `${value}` + "']").attr('content') !==
+      undefined
     ) {
-      output = data("meta[property='og:" + `${value}`+"']").attr('content');
+      output = data("meta[property='og:" + `${value}` + "']").attr('content');
     } else if (
-      data("meta[name='" + `${value}`+"']").attr('content') !== undefined
+      data("meta[name='" + `${value}` + "']").attr('content') !== undefined
     ) {
       output = data("meta[name='" + `${value}` + "']").attr('content');
     } else {
