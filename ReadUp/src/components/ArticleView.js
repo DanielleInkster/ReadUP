@@ -25,10 +25,11 @@ const ArticleView = ({article, deleteEntry}) => {
 
 const styles = StyleSheet.create({
   articleItem: {
-    padding: 15,
+    padding: 20,
     backgroundColor: '#bbe1fa',
     borderBottomWidth: 1,
     borderColor: '#eee',
+    marginVertical: '1%',
   },
   articleItemView: {
     flexDirection: 'row',
