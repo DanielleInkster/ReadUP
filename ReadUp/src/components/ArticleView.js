@@ -12,11 +12,10 @@ const ArticleView = ({article, deleteEntry}) => {
           {article.title.substring(0, 30).trim()}...
         </Text>
         <Icon
+          name="remove"
+          style={styles.icon}
           onPress={() => deleteEntry(article)}
           testID="removeArticle"
-          name="remove"
-          size={20}
-          color="firebrick"
         />
       </View>
     </TouchableOpacity>
@@ -39,6 +38,10 @@ const styles = StyleSheet.create({
   text: {
     color: '#1b262c',
     fontSize: 18,
+  },
+  icon: {
+    fontSize: 25,
+    color: 'firebrick',
   },
 });
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import {render, fireEvent} from 'react-native-testing-library';
 import ArticleView from '../src/components/ArticleView';
 
 import renderer from 'react-test-renderer';
