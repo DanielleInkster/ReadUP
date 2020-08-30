@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#bbe1fa',
     borderBottomWidth: 1,
     borderColor: '#eee',
-    marginVertical: '1%',
+    marginVertical: '.5%',
   },
   articleItemView: {
     flexDirection: 'row',

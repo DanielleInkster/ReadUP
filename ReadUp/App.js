@@ -17,7 +17,7 @@ export default function App() {
         <Switch
           style={styles.switch}
           trackColor={{false: '#bbe1fa', true: '#bbe1fa'}}
-          thumbColor={isEnabled ? '#f0a500' : '#0f4c75'}
+          thumbColor={'#f0a500'}
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#3282b8',
   },
   switch: {
-    marginTop: '2%',
-    marginRight: '2%',
+    marginTop: '5%',
+    marginRight: '3%',
     alignSelf: 'flex-end',
   },
 });
