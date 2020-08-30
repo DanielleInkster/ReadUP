@@ -13,7 +13,6 @@ describe('AddArticle', () => {
   describe('clicking clear', () => {
     it('clears the input field', () => {
       const {getByTestId} = render(<AddArticle />);
-
       fireEvent.changeText(getByTestId('inputText'), 'Hello world');
       fireEvent.press(getByTestId('clearButton'));
       expect(getByTestId('inputText').props.value).toEqual('');

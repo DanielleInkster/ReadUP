@@ -16,8 +16,9 @@ exports[`renders correctly 1`] = `
       "backgroundColor": "#bbe1fa",
       "borderBottomWidth": 1,
       "borderColor": "#eee",
+      "marginVertical": "1%",
       "opacity": 1,
-      "padding": 15,
+      "padding": 20,
     }
   }
 >
@@ -38,17 +39,22 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      Herro!
+      hello
+      ...
     </Text>
     <Text
       allowFontScaling={false}
+      onPress={[Function]}
       style={
         Array [
           Object {
-            "color": "firebrick",
-            "fontSize": 20,
+            "color": undefined,
+            "fontSize": 12,
           },
-          undefined,
+          Object {
+            "color": "firebrick",
+            "fontSize": 25,
+          },
           Object {
             "fontFamily": "FontAwesome",
             "fontStyle": "normal",
