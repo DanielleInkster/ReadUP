@@ -1,15 +1,11 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-
+import React from 'react';
+import {View, Text} from 'react-native';
 
 const DisplayView = () => {
-
-    return (
-        <View >
-            <Text>
-                'Allo Guv'nor!
-                </Text>
-        </View>
-    )
-}
-export default DisplayView
+  return (
+    <View>
+      <Text>'Allo Guv'nor!</Text>
+    </View>
+  );
+};
+export default DisplayView;
