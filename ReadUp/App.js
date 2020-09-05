@@ -16,7 +16,7 @@ export default function App() {
         <Header />
         <Switch
           style={styles.switch}
-          trackColor={{false: '#bbe1fa', true: '#bbe1fa'}}
+          trackColor={{true: '#bbe1fa'}}
           thumbColor={'#f0a500'}
           onValueChange={toggleSwitch}
           value={isEnabled}

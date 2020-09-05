@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
+import withObservables from '@nozbe/with-observables';
 
 const DisplayView = () => {
   return (
@@ -8,4 +10,8 @@ const DisplayView = () => {
     </View>
   );
 };
-export default DisplayView;
+export default withDatabase(
+  withObservables([], ({database}) => ({
+    articles: database.collections.get('articles').query().observe(),
+  }))(DisplayView),
+);
