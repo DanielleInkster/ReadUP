@@ -1,15 +1,31 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
+import Carousel from 'react-native-snap-carousel';
 
-const DisplayView = () => {
+const _renderItem = ({item, index}) => {
   return (
-    <View>
-      <Text>'Allo Guv'nor!</Text>
+    <View style>
+      <Text>{item.title}</Text>
     </View>
   );
 };
+
+const DisplayView = ({articles}) => {
+  return (
+    <Carousel
+      ref={(c) => {
+        _carousel = c;
+      }}
+      data={articles}
+      renderItem={_renderItem}
+      sliderWidth={Dimensions.get('window').width}
+      itemWidth={Dimensions.get('window').width * 0.9}
+    />
+  );
+};
+
 export default withDatabase(
   withObservables([], ({database}) => ({
     articles: database.collections.get('articles').query().observe(),
