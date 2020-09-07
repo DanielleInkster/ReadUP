@@ -24,7 +24,6 @@ const DisplayView = ({articles}) => {
       renderItem={_renderItem}
       sliderWidth={Dimensions.get('window').width}
       itemWidth={Dimensions.get('window').width}
-      containerCustomStyle={styles.container}
     />
   );
 };
@@ -34,16 +33,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#bbe1fa',
     marginTop: '3%',
+    marginBottom: '30%',
+    width: '95%',
+    alignSelf: 'center',
   },
   image: {
-    height: Dimensions.get('window').width,
-    width: Dimensions.get('window').width,
+    marginVertical: '3%',
+    height: '50%',
+    width: '80%',
+    alignSelf: 'center',
   },
   text: {
     color: '#1b262c',
     fontSize: 25,
     textAlign: 'center',
-    marginHorizontal: '1%',
+    marginHorizontal: '3%',
     marginVertical: '2%',
   },
   description: {
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '1%',
   },
   link: {
-    marginTop: '3%',
+    marginTop: '5%',
     color: '#f0a500',
     fontSize: 23,
     fontWeight: 'bold',
