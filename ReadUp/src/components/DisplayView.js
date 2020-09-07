@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text, Image, Dimensions} from 'react-native';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import Carousel from 'react-native-snap-carousel';
 
 const _renderItem = ({item, index}) => {
   return (
-    <View style>
+    <View key={index}>
+      {console.log(item)}
+      <Text>{item.image}</Text>
       <Text>{item.title}</Text>
     </View>
   );
@@ -15,9 +17,6 @@ const _renderItem = ({item, index}) => {
 const DisplayView = ({articles}) => {
   return (
     <Carousel
-      ref={(c) => {
-        _carousel = c;
-      }}
       data={articles}
       renderItem={_renderItem}
       sliderWidth={Dimensions.get('window').width}

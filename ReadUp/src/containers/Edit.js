@@ -33,11 +33,11 @@ export default function Edit() {
     return output;
   }
 
-  async function createDBEntry(title, description, img, url) {
+  async function createDBEntry(title, description, image, url) {
     await database.action(async () => {
       const newArticle = await articlesCollection.create((article) => {
         article.title = title;
-        article.img = img;
+        article.image = image;
         article.description = description;
         article.url = url;
       });
@@ -48,8 +48,8 @@ export default function Edit() {
     const data = await scrapeData(text);
     const title = await getInfo(data, 'title');
     const description = await getInfo(data, 'description');
-    const img = await getInfo(data, 'image');
-    createDBEntry(title, description, img, text);
+    const image = await getInfo(data, 'image');
+    createDBEntry(title, description, image, text);
   }
 
   async function deleteEntry(article) {
