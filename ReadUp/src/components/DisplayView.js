@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, Dimensions, StyleSheet} from 'react-native';
+import {View, Text, Image, Dimensions, Linking, StyleSheet} from 'react-native';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import Carousel from 'react-native-snap-carousel';
@@ -9,6 +9,9 @@ const _renderItem = ({item, index}) => {
     <View key={index} style={styles.container}>
       <Image style={styles.image} source={{uri: item.image}} />
       <Text style={styles.text}>{item.title}</Text>
+      <Text style={styles.link} onPress={() => Linking.openURL(item.url)}>
+        Read On
+      </Text>
     </View>
   );
 };
@@ -30,15 +33,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#bbe1fa',
     marginTop: '3%',
-    marginBottom: '40%',
+    marginBottom: '30%',
   },
   image: {
     height: Dimensions.get('window').width,
     width: Dimensions.get('window').width,
+    margin: '1%',
   },
   text: {
     color: '#1b262c',
     fontSize: 25,
+    textAlign: 'center',
+    marginHorizontal: '1%',
+  },
+  link: {
+    marginTop: '3%',
+    color: '#f0a500',
+    fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
     marginHorizontal: '1%',
   },
