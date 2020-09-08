@@ -9,7 +9,9 @@ const _renderItem = ({item, index}) => {
     <View key={index} style={styles.container}>
       <Image style={styles.image} source={{uri: item.image}} />
       <Text style={styles.text}>{item.title}</Text>
-      <Text style={styles.description}>{item.description}</Text>
+      <Text style={styles.description}>
+        {item.description.substring(0, 85).trim()}...
+      </Text>
       <Text style={styles.link} onPress={() => Linking.openURL(item.url)}>
         Read On
       </Text>
@@ -31,6 +33,7 @@ const DisplayView = ({articles}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderRadius: 15,
     backgroundColor: '#bbe1fa',
     marginTop: '3%',
     marginBottom: '30%',
@@ -44,15 +47,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   text: {
-    color: '#1b262c',
+    color: '#0f4c75',
     fontSize: 25,
+    fontWeight: 'bold',
     textAlign: 'center',
     marginHorizontal: '3%',
     marginVertical: '2%',
   },
   description: {
-    color: '#1b262c',
+    color: '#0f4c75',
     fontSize: 18,
+    fontStyle: 'italic',
     textAlign: 'center',
     marginHorizontal: '1%',
   },
