@@ -25,7 +25,7 @@ const ArticleView = ({article, deleteEntry}) => {
 const styles = StyleSheet.create({
   articleItem: {
     padding: 20,
-    borderRadius: 15,
+    borderRadius: 10,
     backgroundColor: '#bbe1fa',
     borderBottomWidth: 1,
     borderColor: '#eee',
