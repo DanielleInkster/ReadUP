@@ -45,7 +45,7 @@ const DisplayView = ({articles}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: '10%',
+    marginTop: '5%',
     marginBottom: '10%',
     width: '95%',
     alignSelf: 'center',
@@ -81,15 +81,17 @@ const styles = StyleSheet.create({
     marginHorizontal: '1%',
   },
   link: {
+    opacity: 1.5,
     position: 'absolute',
     bottom: '5%',
     width: '95%',
     borderRadius: 15,
-    backgroundColor: '#f0a500',
+    backgroundColor: '#0f4c75',
     marginHorizontal: '1%',
     alignSelf: 'center',
   },
   linkText: {
+    color: '#bbe1fa',
     padding: '3%',
     textAlign: 'center',
     fontSize: 23,
