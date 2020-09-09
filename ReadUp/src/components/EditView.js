@@ -3,11 +3,11 @@ import ArticleView from './ArticleView';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import AddArticle from './AddArticle';
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
 
 const EditView = ({createEntry, deleteEntry, articles}) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <AddArticle getData={createEntry} />
       <FlatList
         data={articles}
@@ -15,7 +15,7 @@ const EditView = ({createEntry, deleteEntry, articles}) => {
           <ArticleView article={item} deleteEntry={deleteEntry} />
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
