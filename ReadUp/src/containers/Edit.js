@@ -10,9 +10,9 @@ export default function Edit() {
 
   async function scrapeData(text) {
     const searchUrl = text;
-    const response = await fetch(searchUrl); // fetch page
-    const htmlString = await response.text(); // get response text
-    const doc = Cheerio.load(htmlString); // parse HTML string
+    const response = await fetch(searchUrl);
+    const htmlString = await response.text();
+    const doc = Cheerio.load(htmlString);
     return doc;
   }
 

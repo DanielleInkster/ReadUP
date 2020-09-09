@@ -12,7 +12,7 @@ const EditView = ({createEntry, deleteEntry, articles}) => {
       <FlatList
         data={articles}
         renderItem={({item}) => (
-          <ArticleView article={item} deleteEntry={deleteEntry}/>
+          <ArticleView article={item} deleteEntry={deleteEntry} />
         )}
       />
     </View>
