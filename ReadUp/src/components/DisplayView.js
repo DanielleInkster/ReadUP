@@ -1,5 +1,13 @@
 import React from 'react';
-import {View, Text, Image, Dimensions, TouchableOpacity, Linking, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+  Linking,
+  StyleSheet,
+} from 'react-native';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import Carousel from 'react-native-snap-carousel';
@@ -8,16 +16,16 @@ const _renderItem = ({item, index}) => {
   return (
     <View key={index} style={styles.container}>
       <Image style={styles.image} source={{uri: item.image}} />
-      <View style ={styles.textView}>
-      <Text style={styles.text}>{item.title}</Text>
-      <Text style={styles.description}>
-        {item.description.substring(0, 85).trim()}...
-      </Text>
+      <View style={styles.textView}>
+        <Text style={styles.text}>{item.title}</Text>
+        <Text style={styles.description}>
+          {item.description.substring(0, 85).trim()}...
+        </Text>
         <TouchableOpacity
-      style={styles.link} 
-      onPress={() => Linking.openURL(item.url)}>
-      <Text style = {styles.linkText}>Read On</Text>
-      </TouchableOpacity>
+          style={styles.link}
+          onPress={() => Linking.openURL(item.url)}>
+          <Text style={styles.linkText}>Read On</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -75,7 +83,7 @@ const styles = StyleSheet.create({
   link: {
     position: 'absolute',
     bottom: '5%',
-    width:'95%',
+    width: '95%',
     borderRadius: 15,
     backgroundColor: '#f0a500',
     marginHorizontal: '1%',
@@ -86,7 +94,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 23,
     fontWeight: 'bold',
-  }
+  },
 });
 
 export default withDatabase(
