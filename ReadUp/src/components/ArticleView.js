@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#bbe1fa',
     borderBottomWidth: 1,
     borderColor: '#eee',
-    marginVertical: '.5%',
+    marginVertical: '3%',
+    marginHorizontal: '2%',
   },
   articleItemView: {
     flexDirection: 'row',

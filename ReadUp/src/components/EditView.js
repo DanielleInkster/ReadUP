@@ -3,22 +3,18 @@ import ArticleView from './ArticleView';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import AddArticle from './AddArticle';
-import {StyleSheet, View} from 'react-native';
-import {List, ListItem, Body} from 'native-base';
+import {StyleSheet, View, FlatList} from 'react-native';
 
 const EditView = ({createEntry, deleteEntry, articles}) => {
   return (
     <View style={styles.container}>
       <AddArticle getData={createEntry} />
-      <List>
-        {articles.map((article) => (
-          <ListItem key={article.id}>
-            <Body>
-              <ArticleView article={article} deleteEntry={deleteEntry} />
-            </Body>
-          </ListItem>
-        ))}
-      </List>
+      <FlatList
+        data={articles}
+        renderItem={({item}) => (
+          <ArticleView article={item} deleteEntry={deleteEntry}/>
+        )}
+      />
     </View>
   );
 };
@@ -29,13 +25,13 @@ const styles = StyleSheet.create({
     marginTop: '5%',
     backgroundColor: '#3282b8',
   },
-  list: {
-    paddingVertical: '2%',
-  },
 });
 
 export default withDatabase(
-  withObservables([], ({database}) => ({
-    articles: database.collections.get('articles').query().observe(),
+  withObservables(['activeFilter'], ({database}) => ({
+    articles: database.collections
+      .get('articles')
+      .query()
+      .observeWithColumns(['title']),
   }))(EditView),
 );
