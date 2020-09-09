@@ -28,7 +28,7 @@ export default function Edit() {
     ) {
       output = data("meta[name='" + `${value}` + "']").attr('content');
     } else {
-      output = 'No description available';
+      output = `No ${value} available`;
     }
     return output;
   }
