@@ -26,6 +26,7 @@ const EditView = ({createEntry, deleteEntry, articles}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: '5%',
     backgroundColor: '#3282b8',
   },
   list: {

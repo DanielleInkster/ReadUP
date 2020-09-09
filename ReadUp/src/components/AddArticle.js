@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#bbe1fa',
     height: 70,
     padding: 8,
+    borderRadius: 15,
     marginTop: '5%',
     marginHorizontal: 5,
     fontSize: 20,
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
 
   btn: {
     backgroundColor: '#0f4c75',
+    borderRadius: 15,
     padding: 9,
     height: 50,
     width: '40%',
