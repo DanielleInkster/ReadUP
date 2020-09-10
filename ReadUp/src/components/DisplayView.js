@@ -38,6 +38,7 @@ const DisplayView = ({articles}) => {
       renderItem={_renderItem}
       sliderWidth={Dimensions.get('window').width}
       itemWidth={Dimensions.get('window').width}
+      loop={true}
     />
   );
 };
@@ -60,8 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '45%',
     marginTop: '-60%',
-    opacity: 0.88,
-    backgroundColor: '#bbe1fa',
+    backgroundColor: 'rgba(187,225,250,0.88)',
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
   },
