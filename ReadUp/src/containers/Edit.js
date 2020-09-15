@@ -13,6 +13,18 @@ export default function Edit() {
     return validator.test(text);
   }
 
+  function createAlert(message, text) {
+    return Alert.alert(
+      message,
+      [
+        {
+          text: text,
+        },
+      ],
+      {cancelable: false},
+    );
+  }
+
   async function scrapeData(text) {
     const searchUrl = text;
     const response = await fetch(searchUrl);
@@ -50,22 +62,14 @@ export default function Edit() {
   }
 
   async function createEntry(text) {
-    if (checkValidity(text) === true) {
+    if (checkValidity(text.toLowerCase()) === true) {
       const data = await scrapeData(text);
       const title = await getInfo(data, 'title');
       const description = await getInfo(data, 'description');
       const image = await getInfo(data, 'image');
       createDBEntry(title, description, image, text);
     } else {
-      Alert.alert(
-        'Please enter a valid url',
-        [
-          {
-            text: 'OK',
-          },
-        ],
-        {cancelable: false},
-      );
+      createAlert('Please enter a valid URL', 'OK');
     }
   }
 
