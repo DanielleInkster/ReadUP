@@ -13,24 +13,26 @@ export default function Edit() {
     return validator.test(text);
   }
 
-  function createAlert(message, text) {
-    return Alert.alert(
-      message,
-      [
-        {
-          text: text,
-        },
-      ],
-      {cancelable: false},
-    );
+  function createAlert(message, message2) {
+    return Alert.alert(message, message2, {cancelable: false});
   }
 
   async function scrapeData(text) {
-    const searchUrl = text;
-    const response = await fetch(searchUrl);
-    const htmlString = await response.text();
-    const doc = Cheerio.load(htmlString);
-    return doc;
+    try {
+      const searchUrl = text;
+      const response = await fetch(searchUrl);
+      const htmlString = await response.text();
+      const doc = Cheerio.load(htmlString);
+      console.log(doc);
+      return doc;
+    } catch (e) {
+      if (e.message === 'Network request failed') {
+        createAlert(
+          'Unable to create an entry',
+          "This may be a connectivity issue, or the URL doesn't provide enough information to make an entry.",
+        );
+      }
+    }
   }
 
   function getInfo(data, value) {
@@ -69,7 +71,7 @@ export default function Edit() {
       const image = await getInfo(data, 'image');
       createDBEntry(title, description, image, text);
     } else {
-      createAlert('Please enter a valid URL', 'OK');
+      createAlert('Please enter a valid URL');
     }
   }
 
