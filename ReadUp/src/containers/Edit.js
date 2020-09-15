@@ -76,9 +76,24 @@ export default function Edit() {
   }
 
   async function deleteEntry(article) {
-    await database.action(async () => {
-      await article.destroyPermanently();
-    });
+    Alert.alert(
+      'Are you sure you want to delete this article?',
+      'This action cannot be undone',
+      [
+        {
+          text: 'Delete',
+          onPress: () =>
+            database.action(async () => {
+              await article.destroyPermanently();
+            }),
+        },
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+      ],
+      {cancelable: false},
+    );
   }
 
   return (
