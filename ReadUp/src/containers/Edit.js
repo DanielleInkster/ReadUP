@@ -29,7 +29,7 @@ export default function Edit() {
       if (e.message === 'Network request failed') {
         createAlert(
           'Unable to create an entry',
-          "This may be a connectivity issue, or the URL doesn't provide enough information to make an entry.",
+          "This may be a connectivity issue, or the URL doesn't provide enough information.",
         );
       }
     }
