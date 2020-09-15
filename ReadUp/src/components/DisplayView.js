@@ -24,7 +24,7 @@ function DisplayView({articles}) {
       <Pagination
         dotsLength={articles.length}
         activeDotIndex={activeSlide}
-        containerStyle={{backgroundColor: 'rgba(0, 0, 0, 0.75)'}}
+        containerStyle={{backgroundColor: 'rgba(15, 76, 117, 0.75)'}}
         dotStyle={{
           width: 10,
           height: 10,
