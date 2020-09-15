@@ -30,7 +30,7 @@ function DisplayView({articles}) {
           height: 10,
           borderRadius: 5,
           marginHorizontal: 8,
-          backgroundColor: 'rgba(255, 255, 255, 0.92)',
+          backgroundColor: 'rgba(187,225,250, 0.92)',
         }}
         inactiveDotStyle={{}}
         inactiveDotOpacity={0.4}
