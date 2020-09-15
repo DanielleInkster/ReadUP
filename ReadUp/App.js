@@ -3,7 +3,7 @@ import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider';
 import {View, Switch, StyleSheet} from 'react-native';
 import {database} from './index.js';
 import Header from './src/components/Header';
-import DisplayView from './src/components/DisplayView';
+import Display from './src/containers/Display';
 import Edit from './src/containers/Edit';
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
           value={isEnabled}
         />
         {isEnabled === true && <Edit />}
-        {isEnabled === false && <DisplayView />}
+        {isEnabled === false && <Display />}
       </View>
     </DatabaseProvider>
   );
