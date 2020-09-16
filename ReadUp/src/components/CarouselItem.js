@@ -9,6 +9,10 @@ import {
   ImageBackground,
 } from 'react-native';
 
+function trim(item, limit) {
+  return item.length > limit ? item.substring(0, limit).trim() + '...' : item;
+}
+
 const CarouselItem = ({item, index}) => {
   return (
     <View key={index} style={styles.container}>
@@ -18,9 +22,11 @@ const CarouselItem = ({item, index}) => {
         style={styles.background}>
         <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.textView}>
-          <Text style={styles.text}>{item.title}</Text>
+          <Text style={styles.text}>
+            {trim(item.title, 50)}
+          </Text>
           <Text style={styles.description}>
-            {item.description.substring(0, 85).trim()}...
+            {trim(item.description, 85)}...
           </Text>
           <TouchableOpacity
             style={styles.link}
@@ -38,6 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '95%',
     marginTop: '5%',
+    marginBottom: '5%',
     alignSelf: 'center',
     flexDirection: 'column',
     borderRadius: 15,
