@@ -22,12 +22,8 @@ const CarouselItem = ({item, index}) => {
         style={styles.background}>
         <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.textView}>
-          <Text style={styles.text}>
-            {trim(item.title, 50)}
-          </Text>
-          <Text style={styles.description}>
-            {trim(item.description, 85)}...
-          </Text>
+          <Text style={styles.text}>{trim(item.title, 50)}</Text>
+          <Text style={styles.description}>{trim(item.description, 85)}</Text>
           <TouchableOpacity
             style={styles.link}
             onPress={() => Linking.openURL(item.url)}>

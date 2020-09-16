@@ -25,7 +25,7 @@ const AddArticle = ({getData}) => {
         onChangeText={onChange}
       />
 
-      <View style={{flexDirection: 'row'}}>
+      <View style={styles.container}>
         <TouchableOpacity
           testID="addButton"
           style={styles.btn}
@@ -51,6 +51,9 @@ const AddArticle = ({getData}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
   input: {
     backgroundColor: '#bbe1fa',
     height: 70,
