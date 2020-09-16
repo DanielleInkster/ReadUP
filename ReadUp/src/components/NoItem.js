@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 const NoItem = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Nothing to see here - yet! </Text>
-      <Text style={styles.text}>Press the button to start adding articles. </Text>
+      <Text style={styles.text}>
+        Press the button to start adding articles.{' '}
+      </Text>
     </View>
   );
 };
