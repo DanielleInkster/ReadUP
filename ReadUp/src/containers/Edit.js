@@ -23,7 +23,6 @@ export default function Edit() {
       const response = await fetch(searchUrl);
       const htmlString = await response.text();
       const doc = Cheerio.load(htmlString);
-      console.log(doc);
       return doc;
     } catch (e) {
       if (e.message === 'Network request failed') {
@@ -66,9 +65,9 @@ export default function Edit() {
   async function createEntry(text) {
     if (checkValidity(text.toLowerCase()) === true) {
       const data = await scrapeData(text);
-      const title = await getInfo(data, 'title');
-      const description = await getInfo(data, 'description');
-      const image = await getInfo(data, 'image');
+      const title = getInfo(data, 'title');
+      const description = getInfo(data, 'description');
+      const image = getInfo(data, 'image');
       createDBEntry(title, description, image, text);
     } else {
       createAlert('Please enter a valid URL');
