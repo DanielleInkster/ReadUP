@@ -66,7 +66,7 @@ export default function Edit() {
         });
       });
     } else {
-      createAlert('Database full');
+      createAlert('Database full', 'Maximum of 20 entries');
     }
   }
 
