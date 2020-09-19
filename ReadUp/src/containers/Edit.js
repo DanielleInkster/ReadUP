@@ -3,11 +3,15 @@ import EditView from '../components/EditView';
 import {useDatabase} from '@nozbe/watermelondb/hooks';
 import {View, StyleSheet, Alert} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
+import {Q} from '@nozbe/watermelondb';
 
 export default function Edit() {
   const validator = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   const database = useDatabase();
   const articlesCollection = database.get('articles');
+  const count = database.collections
+    .get('articles')
+    .query(Q.where('url', Q.notEq(null))).count;
 
   function checkValidity(text) {
     return validator.test(text);
@@ -73,6 +77,7 @@ export default function Edit() {
   }
 
   async function createEntry(text) {
+    console.log;
     if (checkValidity(text.toLowerCase()) === true) {
       const data = await scrapeData(text);
       getEntryData(data, text);
