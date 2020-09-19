@@ -25,11 +25,12 @@ const AddArticle = ({getData}) => {
         onChangeText={onChange}
       />
 
-      <View style={{flexDirection: 'row'}}>
+      <View style={styles.container}>
         <TouchableOpacity
           testID="addButton"
           style={styles.btn}
-          onPress={() => getData(articleText)}>
+          onPress={() => getData(articleText)}
+          onPressOut={() => setArticleText('')}>
           <Text style={styles.btnText}>
             <Icon name="plus" size={15} />
             {'  Add Article'}
@@ -51,6 +52,9 @@ const AddArticle = ({getData}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
   input: {
     backgroundColor: '#bbe1fa',
     height: 70,

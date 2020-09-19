@@ -23,14 +23,14 @@ export default function Edit() {
       const response = await fetch(searchUrl);
       const htmlString = await response.text();
       const doc = Cheerio.load(htmlString);
-      console.log(doc);
       return doc;
     } catch (e) {
       if (e.message === 'Network request failed') {
         createAlert(
           'Unable to create an entry',
-          "This may be a connectivity issue, or the URL doesn't provide enough information.",
+          "There may be a connectivity issue, or the URL doesn't provide enough information.",
         );
+        return e.message;
       }
     }
   }
@@ -63,13 +63,19 @@ export default function Edit() {
     });
   }
 
+  function getEntryData(data, text) {
+    if (data !== 'Network request failed') {
+      const title = getInfo(data, 'title');
+      const description = getInfo(data, 'description');
+      const image = getInfo(data, 'image');
+      createDBEntry(title, description, image, text);
+    }
+  }
+
   async function createEntry(text) {
     if (checkValidity(text.toLowerCase()) === true) {
       const data = await scrapeData(text);
-      const title = await getInfo(data, 'title');
-      const description = await getInfo(data, 'description');
-      const image = await getInfo(data, 'image');
-      createDBEntry(title, description, image, text);
+      getEntryData(data, text);
     } else {
       createAlert('Please enter a valid URL');
     }

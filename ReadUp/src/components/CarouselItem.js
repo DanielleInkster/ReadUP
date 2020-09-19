@@ -6,23 +6,31 @@ import {
   TouchableOpacity,
   Linking,
   StyleSheet,
+  ImageBackground,
 } from 'react-native';
+
+function trim(item, limit) {
+  return item.length > limit ? item.substring(0, limit).trim() + '...' : item;
+}
 
 const CarouselItem = ({item, index}) => {
   return (
     <View key={index} style={styles.container}>
-      <Image style={styles.image} source={{uri: item.image}} />
-      <View style={styles.textView}>
-        <Text style={styles.text}>{item.title}</Text>
-        <Text style={styles.description}>
-          {item.description.substring(0, 85).trim()}...
-        </Text>
-        <TouchableOpacity
-          style={styles.link}
-          onPress={() => Linking.openURL(item.url)}>
-          <Text style={styles.linkText}>Read On</Text>
-        </TouchableOpacity>
-      </View>
+      <ImageBackground
+        source={require('../images/none.png')}
+        imageStyle={{borderRadius: 15}}
+        style={styles.background}>
+        <Image style={styles.image} source={{uri: item.image}} />
+        <View style={styles.textView}>
+          <Text style={styles.text}>{trim(item.title, 50)}</Text>
+          <Text style={styles.description}>{trim(item.description, 85)}</Text>
+          <TouchableOpacity
+            style={styles.link}
+            onPress={() => Linking.openURL(item.url)}>
+            <Text style={styles.linkText}>Read On</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -30,10 +38,18 @@ const CarouselItem = ({item, index}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: '5%',
-    marginBottom: '10%',
     width: '95%',
+    marginTop: '5%',
+    marginBottom: '5%',
     alignSelf: 'center',
+    flexDirection: 'column',
+    borderRadius: 15,
+  },
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
   },
   image: {
     borderRadius: 15,
