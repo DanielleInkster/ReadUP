@@ -9,7 +9,7 @@ export default function Edit() {
   const database = useDatabase();
   const articlesCollection = database.get('articles');
 
-  async function checkCount(){
+  async function checkCount() {
     await database.action(async () => {
       const count = await articlesCollection.query().fetch();
       console.log(count.length);
@@ -89,7 +89,7 @@ export default function Edit() {
   }
 
   async function deleteEntry(article) {
-    checkCount()
+    checkCount();
     Alert.alert(
       'Are you sure you want to delete this article?',
       'This action cannot be undone',
