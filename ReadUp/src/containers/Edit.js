@@ -53,10 +53,10 @@ export default function Edit() {
     return output;
   }
 
-  async function createDBEntry(title, description, image, url) {
+  async function createDBEntry(title, description, image, url, num = 20) {
     let count = await articlesCollection.query(Q.where('url', Q.notEq(null)))
       .count;
-    if (count < 20) {
+    if (count < num) {
       await database.action(async () => {
         const newArticle = await articlesCollection.create((article) => {
           article.title = title;
@@ -66,11 +66,11 @@ export default function Edit() {
         });
       });
     } else {
-      createAlert('Database full', 'Maximum of 20 entries');
+      createAlert('Database full', `Maximum of ${num} entries`);
     }
   }
 
-  function getEntryData(data, text) {
+  function enterData(data, text) {
     if (data !== 'Network request failed') {
       const title = getInfo(data, 'title');
       const description = getInfo(data, 'description');
@@ -82,7 +82,7 @@ export default function Edit() {
   async function createEntry(text) {
     if (checkValidity(text.toLowerCase()) === true) {
       const data = await scrapeData(text);
-      getEntryData(data, text);
+      enterData(data, text);
     } else {
       createAlert('Please enter a valid URL');
     }
