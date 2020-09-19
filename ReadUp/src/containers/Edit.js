@@ -1,6 +1,7 @@
 import React from 'react';
 import EditView from '../components/EditView';
 import {useDatabase} from '@nozbe/watermelondb/hooks';
+import {Q} from '@nozbe/watermelondb';
 import {View, StyleSheet, Alert} from 'react-native';
 import Cheerio from 'cheerio-without-node-native';
 
@@ -8,13 +9,6 @@ export default function Edit() {
   const validator = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   const database = useDatabase();
   const articlesCollection = database.get('articles');
-
-  async function checkCount() {
-    await database.action(async () => {
-      const count = await articlesCollection.query().fetch();
-      console.log(count.length);
-    });
-  }
 
   function checkValidity(text) {
     return validator.test(text);
@@ -60,14 +54,20 @@ export default function Edit() {
   }
 
   async function createDBEntry(title, description, image, url) {
-    await database.action(async () => {
-      const newArticle = await articlesCollection.create((article) => {
-        article.title = title;
-        article.image = image;
-        article.description = description;
-        article.url = url;
+    let count = await articlesCollection.query(Q.where('url', Q.notEq(null)))
+      .count;
+    if (count < 20) {
+      await database.action(async () => {
+        const newArticle = await articlesCollection.create((article) => {
+          article.title = title;
+          article.image = image;
+          article.description = description;
+          article.url = url;
+        });
       });
-    });
+    } else {
+      createAlert('Database full');
+    }
   }
 
   function getEntryData(data, text) {
@@ -89,7 +89,6 @@ export default function Edit() {
   }
 
   async function deleteEntry(article) {
-    checkCount();
     Alert.alert(
       'Are you sure you want to delete this article?',
       'This action cannot be undone',
