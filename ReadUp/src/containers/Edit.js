@@ -30,6 +30,7 @@ export default function Edit() {
           'Unable to create an entry',
           "There may be a connectivity issue, or the URL doesn't provide enough information.",
         );
+        return e.message;
       }
     }
   }
@@ -62,13 +63,19 @@ export default function Edit() {
     });
   }
 
-  async function createEntry(text) {
-    if (checkValidity(text.toLowerCase()) === true) {
-      const data = await scrapeData(text);
+  function getEntryData(data, text) {
+    if (data !== 'Network request failed') {
       const title = getInfo(data, 'title');
       const description = getInfo(data, 'description');
       const image = getInfo(data, 'image');
       createDBEntry(title, description, image, text);
+    }
+  }
+
+  async function createEntry(text) {
+    if (checkValidity(text.toLowerCase()) === true) {
+      const data = await scrapeData(text);
+      getEntryData(data, text);
     } else {
       createAlert('Please enter a valid URL');
     }

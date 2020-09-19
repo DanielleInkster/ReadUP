@@ -29,7 +29,7 @@ const AddArticle = ({getData}) => {
         <TouchableOpacity
           testID="addButton"
           style={styles.btn}
-          onPressIn={() => getData(articleText)}
+          onPress={() => getData(articleText)}
           onPressOut={() => setArticleText('')}>
           <Text style={styles.btnText}>
             <Icon name="plus" size={15} />
