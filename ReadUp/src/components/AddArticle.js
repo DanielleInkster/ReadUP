@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-Icon.loadFont();
-
 const AddArticle = ({getData}) => {
   const [articleText, setArticleText] = useState('');
 
