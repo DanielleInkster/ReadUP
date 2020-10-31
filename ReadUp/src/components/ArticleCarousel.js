@@ -28,7 +28,7 @@ function ArticleCarousel({articles}) {
           width: 10,
           height: 10,
           borderRadius: 5,
-          marginHorizontal: 8,
+          marginHorizontal: 5,
           backgroundColor: 'rgba(187,225,250, 0.92)',
         }}
         inactiveDotStyle={{}}
