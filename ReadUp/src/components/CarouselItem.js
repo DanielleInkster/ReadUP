@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   textView: {
     flex: 1,
     height: '45%',
-    marginTop: '-60%',
+    marginTop: '-52%',
     backgroundColor: 'rgba(187,225,250,0.88)',
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
@@ -74,15 +74,16 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: '1%',
+    marginBottom: '2%',
     marginHorizontal: '3%',
-    marginVertical: '3%',
   },
   description: {
     color: '#0f4c75',
     fontSize: 18,
     fontStyle: 'italic',
     textAlign: 'center',
-    marginHorizontal: '1%',
+    marginHorizontal: '3%',
   },
   link: {
     opacity: 1.5,
