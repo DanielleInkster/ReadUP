@@ -15,7 +15,7 @@ export default function Edit() {
   }
 
   function createAlert(message, message2) {
-    return Alert.alert(message, message2, {cancelable: false});
+    return Alert.alert(message, message2, [{text: 'OK'}], {cancelable: false});
   }
 
   async function scrapeData(text) {

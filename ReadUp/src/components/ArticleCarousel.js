@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {View, Dimensions, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import CarouselList from './CarouselList';
 import CarouselItem from './CarouselItem';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
+import PaginationList from './PaginationList';
+// import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 const _renderItem = ({item, index}) => {
   return <CarouselItem item={item} index={index} />;
@@ -12,29 +14,12 @@ function ArticleCarousel({articles}) {
 
   return (
     <View style={styles.container}>
-      <Carousel
-        data={articles}
-        renderItem={_renderItem}
-        sliderWidth={Dimensions.get('window').width}
-        itemWidth={Dimensions.get('window').width}
-        onSnapToItem={(index) => update(index)}
-        loop={true}
+      <CarouselList
+        articles={articles}
+        update={(index) => update(index)}
+        _renderItem={_renderItem}
       />
-      <Pagination
-        dotsLength={articles.length}
-        activeDotIndex={activeSlide}
-        containerStyle={{backgroundColor: 'rgba(15, 76, 117, 0.75)'}}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 8,
-          backgroundColor: 'rgba(187,225,250, 0.92)',
-        }}
-        inactiveDotStyle={{}}
-        inactiveDotOpacity={0.4}
-        inactiveDotScale={0.6}
-      />
+      <PaginationList articles={articles} activeSlide={activeSlide} />
     </View>
   );
 }
