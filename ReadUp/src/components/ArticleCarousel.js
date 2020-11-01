@@ -23,14 +23,8 @@ function ArticleCarousel({articles}) {
       <Pagination
         dotsLength={articles.length}
         activeDotIndex={activeSlide}
-        containerStyle={{backgroundColor: 'rgba(15, 76, 117, 0.75)'}}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 5,
-          backgroundColor: 'rgba(187,225,250, 0.92)',
-        }}
+        containerStyle={styles.containerStyle}
+        dotStyle={styles.dotStyle}
         inactiveDotStyle={{}}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
@@ -43,6 +37,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#3282b8',
+  },
+  containerStyle: {
+    paddingVertical: '5%',
+    backgroundColor: 'rgba(15, 76, 117, 0.75)',
+  },
+  dotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 5,
+    backgroundColor: 'rgba(187,225,250, 0.92)',
   },
 });
 
