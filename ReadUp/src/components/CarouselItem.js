@@ -1,5 +1,4 @@
 import React from 'react';
-import FastImage from 'react-native-fast-image';
 import {
   View,
   Text,
@@ -21,10 +20,7 @@ const CarouselItem = ({item, index}) => {
         source={require('../images/none.png')}
         imageStyle={{borderRadius: 15}}
         style={styles.background}>
-        <FastImage
-          style={styles.image}
-          source={{uri: item.image, priority: FastImage.priority.normal}}
-        />
+        <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.textView}>
           <Text style={styles.text} numberOfLines={2}>
             {trim(item.title, 50)}
