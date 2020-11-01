@@ -1,20 +1,15 @@
 import React from 'react';
-import ArticleView from './ArticleView';
+import ArticleList from './ArticleList';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 import AddArticle from './AddArticle';
-import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 
 const EditView = ({createEntry, deleteEntry, articles}) => {
   return (
     <SafeAreaView style={styles.container}>
       <AddArticle getData={createEntry} />
-      <FlatList
-        data={articles}
-        renderItem={({item}) => (
-          <ArticleView article={item} deleteEntry={deleteEntry} />
-        )}
-      />
+      <ArticleList articles={articles} deleteEntry={deleteEntry} />
     </SafeAreaView>
   );
 };
