@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 10,
     marginHorizontal: 5,
+    fontFamily: 'sans-serif-medium',
     fontSize: 20,
     borderColor: '#1b262c',
     borderStyle: 'solid',
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#bbe1fa',
     fontSize: 20,
+    fontFamily: 'sans-serif-medium',
     fontWeight: '600',
     textAlign: 'center',
   },

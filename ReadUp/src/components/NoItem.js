@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
 
   heading: {
     fontSize: 30,
+    fontFamily: 'sans-serif-medium',
     fontWeight: 'bold',
     fontStyle: 'italic',
     textAlign: 'center',
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 25,
+    fontFamily: 'sans-serif-medium',
     fontStyle: 'italic',
     textAlign: 'center',
     marginTop: '5%',

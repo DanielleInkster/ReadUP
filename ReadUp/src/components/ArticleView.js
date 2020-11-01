@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#1b262c',
     fontSize: 18,
+    fontFamily: 'sans-serif-medium',
   },
   icon: {
     fontSize: 25,

@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#0f4c75',
     fontSize: 25,
+    fontFamily: 'sans-serif-medium',
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: '1%',
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
   description: {
     color: '#0f4c75',
     fontSize: 18,
+    fontFamily: 'sans-serif-medium',
     fontStyle: 'italic',
     textAlign: 'center',
     marginHorizontal: '3%',
@@ -100,6 +102,7 @@ const styles = StyleSheet.create({
     padding: '3%',
     textAlign: 'center',
     fontSize: 23,
+    fontFamily: 'sans-serif-medium',
     fontWeight: 'bold',
   },
 });
