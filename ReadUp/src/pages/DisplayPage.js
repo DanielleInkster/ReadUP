@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import NoItem from './NoItem';
-import ArticleCarousel from './ArticleCarousel';
+import NoItem from '../components/NoItem';
+import ArticleCarousel from '../components/ArticleCarousel';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
 

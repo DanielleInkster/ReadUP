@@ -1,8 +1,8 @@
 import React from 'react';
-import ArticleList from './ArticleList';
+import ArticleList from '../components/ArticleList';
 import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
 import withObservables from '@nozbe/with-observables';
-import AddArticle from './AddArticle';
+import AddArticle from '../components/AddArticle';
 import {StyleSheet, SafeAreaView} from 'react-native';
 
 const EditView = ({createEntry, deleteEntry, articles}) => {

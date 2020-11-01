@@ -4,7 +4,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {View, Switch, StyleSheet} from 'react-native';
 import {database} from './index.js';
 import Header from './src/components/Header';
-import DisplayView from './src/components/DisplayView';
+import DisplayPage from './src/pages/DisplayPage';
 import Edit from './src/containers/Edit';
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
           value={isEnabled}
         />
         {isEnabled === true && <Edit />}
-        {isEnabled === false && <DisplayView />}
+        {isEnabled === false && <DisplayPage />}
       </View>
     </DatabaseProvider>
   );

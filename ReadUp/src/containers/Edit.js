@@ -1,5 +1,5 @@
 import React from 'react';
-import EditView from '../components/EditView';
+import EditPage from '../pages/EditPage';
 import {useDatabase} from '@nozbe/watermelondb/hooks';
 import {Q} from '@nozbe/watermelondb';
 import {View, StyleSheet, Alert} from 'react-native';
@@ -111,7 +111,7 @@ export default function Edit() {
 
   return (
     <View style={styles.container}>
-      <EditView createEntry={createEntry} deleteEntry={deleteEntry} />
+      <EditPage createEntry={createEntry} deleteEntry={deleteEntry} />
     </View>
   );
 }
