@@ -1,16 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
-const Header = (props) => {
+const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.text}>{props.title}</Text>
+      <Image style={styles.image} source={require('../images/title.png')} />
     </View>
   );
-};
-
-Header.defaultProps = {
-  title: 'ReadUp',
 };
 
 const styles = StyleSheet.create({
@@ -18,11 +14,10 @@ const styles = StyleSheet.create({
     height: '12%',
     backgroundColor: '#0f4c75',
   },
-  text: {
-    padding: '8%',
-    color: '#bbe1fa',
-    fontSize: 25,
-    textAlign: 'center',
+  image: {
+    padding: '3%',
+    alignSelf: 'center',
+    marginTop: '3%',
   },
 });
 
