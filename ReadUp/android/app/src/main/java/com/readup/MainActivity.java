@@ -1,10 +1,11 @@
 package com.readup;
+import android.os.Bundle; 
+
+import org.devio.rn.splashscreen.SplashScreen; 
 
 import com.facebook.react.ReactActivity;
 
 import org.devio.rn.splashscreen.SplashScreen; 
-
-import com.cboy.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
