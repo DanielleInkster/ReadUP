@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#3282b8',
   },
   switch: {
-    marginTop: '5%',
+    transform: [{scaleX: 1.5}, {scaleY: 1.5}],
+    paddingBottom: '2%',
+    marginTop: '3%',
     marginRight: '3%',
     alignSelf: 'flex-end',
   },
