@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "backgroundColor": "rgba(187,225,250,0.88)",
+      "borderRadius": 15,
+      "flex": 1,
+      "marginBottom": "20%",
+      "marginTop": "5%",
+      "width": "95%",
+    }
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Object {
+          "alignSelf": "flex-end",
+          "color": "#0f4c75",
+          "fontSize": 75,
+          "paddingRight": "5%",
+          "paddingTop": "5%",
+        },
+        Object {
+          "fontFamily": "FontAwesome",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#0f4c75",
+        "fontFamily": "sans-serif-medium",
+        "fontSize": 30,
+        "fontStyle": "italic",
+        "fontWeight": "bold",
+        "marginTop": "30%",
+        "textAlign": "center",
+      }
+    }
+  >
+    Nothing to see here - yet! 
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#0f4c75",
+        "fontFamily": "sans-serif-medium",
+        "fontSize": 25,
+        "fontStyle": "italic",
+        "marginTop": "5%",
+        "textAlign": "center",
+      }
+    }
+  >
+    Press the 'Edit' button to start adding articles.
+  </Text>
+</View>
+`;
