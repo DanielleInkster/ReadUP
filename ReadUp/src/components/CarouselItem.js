@@ -18,7 +18,7 @@ const CarouselItem = ({item, index}) => {
     <View key={index} style={styles.container}>
       <ImageBackground
         source={require('../images/none.png')}
-        imageStyle={{borderRadius: 15}}
+        imageStyle={styles.imageStyle}
         style={styles.background}>
         <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.textView}>
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     alignSelf: 'center',
+  },
+  imageStyle: {
+    borderRadius: 15,
   },
   textView: {
     flex: 1,

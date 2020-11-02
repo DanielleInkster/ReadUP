@@ -6,7 +6,7 @@ Icon.loadFont();
 
 const ArticleView = ({article, deleteEntry}) => {
   return (
-    <TouchableOpacity style={styles.articleItem}>
+    <TouchableOpacity style={styles.articleItem} testID="listItem">
       <View style={styles.articleItemView}>
         <Text style={styles.text}>
           {article.title.substring(0, 30).trim()}...

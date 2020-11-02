@@ -5,21 +5,23 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#0f4c75",
-      "height": "15%",
+      "height": "12%",
     }
   }
 >
-  <Text
-    style={
+  <Image
+    source={
       Object {
-        "color": "#bbe1fa",
-        "fontSize": 25,
-        "padding": "18%",
-        "textAlign": "center",
+        "testUri": "../../../src/images/title.png",
       }
     }
-  >
-    ReadUp
-  </Text>
+    style={
+      Object {
+        "alignSelf": "center",
+        "marginTop": "3%",
+        "padding": "3%",
+      }
+    }
+  />
 </View>
 `;
