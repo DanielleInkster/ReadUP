@@ -9,7 +9,7 @@ test('renders correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-describe('Header', () => {
+describe('NoItem', () => {
   it('displays startup info', () => {
     const {getByText} = render(<NoItem />);
     expect(getByText('Nothing to see here - yet! ')).not.toBeNull();

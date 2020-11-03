@@ -3,7 +3,6 @@ import {View, StyleSheet} from 'react-native';
 import CarouselList from './CarouselList';
 import CarouselItem from './CarouselItem';
 import PaginationList from './PaginationList';
-// import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 const _renderItem = ({item, index}) => {
   return <CarouselItem item={item} index={index} />;

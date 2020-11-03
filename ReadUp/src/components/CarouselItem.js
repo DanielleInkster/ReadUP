@@ -30,7 +30,8 @@ const CarouselItem = ({item, index}) => {
           </Text>
           <TouchableOpacity
             style={styles.link}
-            onPress={() => Linking.openURL(item.url)}>
+            onPress={() => Linking.openURL(item.url)}
+            testID="button">
             <Text style={styles.linkText}>Read On</Text>
           </TouchableOpacity>
         </View>
