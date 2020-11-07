@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CarouselItem;
+export default React.memo(CarouselItem);
