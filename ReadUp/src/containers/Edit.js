@@ -9,6 +9,7 @@ export default function Edit() {
   const validator = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   const database = useDatabase();
   const articlesCollection = database.get('articles');
+  const maxNum = 10;
 
   function checkValidity(text) {
     return validator.test(text);
@@ -53,10 +54,10 @@ export default function Edit() {
     return output;
   }
 
-  async function createDBEntry(title, description, image, url, num = 20) {
+  async function createDBEntry(title, description, image, url) {
     let count = await articlesCollection.query(Q.where('url', Q.notEq(null)))
       .count;
-    if (count < num) {
+    if (count < maxNum) {
       await database.action(async () => {
         const newArticle = await articlesCollection.create((article) => {
           article.title = title;
@@ -66,7 +67,7 @@ export default function Edit() {
         });
       });
     } else {
-      createAlert('Database full', `Maximum of ${num} entries`);
+      createAlert('Database full', `Maximum of ${maxNum} entries`);
     }
   }
 
