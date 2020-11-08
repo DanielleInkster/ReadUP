@@ -31,6 +31,7 @@
     "@babel/runtime": "^7.11.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.2.2",
+    "detox": "^17.10.6",
     "eslint": "^7.6.0",
     "jest": "^26.2.2",
     "metro-react-native-babel-preset": "^0.61.0",

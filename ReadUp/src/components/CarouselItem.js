@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   View,
   Text,
@@ -14,29 +14,34 @@ function trim(item, limit) {
 }
 
 const CarouselItem = ({item, index}) => {
-  return (
-    <View key={index} style={styles.container}>
-      <ImageBackground
-        source={require('../images/none.png')}
-        imageStyle={{borderRadius: 15}}
-        style={styles.background}>
-        <Image style={styles.image} source={{uri: item.image}} />
-        <View style={styles.textView}>
-          <Text style={styles.text} numberOfLines={2}>
-            {trim(item.title, 50)}
-          </Text>
-          <Text style={styles.description} numberOfLines={2}>
-            {trim(item.description, 85)}
-          </Text>
-          <TouchableOpacity
-            style={styles.link}
-            onPress={() => Linking.openURL(item.url)}>
-            <Text style={styles.linkText}>Read On</Text>
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
-    </View>
-  );
+  const CarouselItemComponent = useMemo(() => {
+    return (
+      <View key={index} style={styles.container}>
+        <ImageBackground
+          source={require('../images/none.png')}
+          imageStyle={styles.imageStyle}
+          style={styles.background}>
+          <Image style={styles.image} source={{uri: item.image}} />
+          <View style={styles.textView}>
+            <Text style={styles.text} numberOfLines={2}>
+              {trim(item.title, 50)}
+            </Text>
+            <Text style={styles.description} numberOfLines={2}>
+              {trim(item.description, 85)}
+            </Text>
+            <TouchableOpacity
+              style={styles.link}
+              onPress={() => Linking.openURL(item.url)}
+              testID="button">
+              <Text style={styles.linkText}>Read On</Text>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+      </View>
+    );
+  }, [item, index]);
+
+  return CarouselItemComponent;
 };
 
 const styles = StyleSheet.create({
@@ -60,6 +65,9 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     alignSelf: 'center',
+  },
+  imageStyle: {
+    borderRadius: 15,
   },
   textView: {
     flex: 1,
@@ -107,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CarouselItem;
+export default React.memo(CarouselItem);

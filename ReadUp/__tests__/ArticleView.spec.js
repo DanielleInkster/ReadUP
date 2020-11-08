@@ -4,7 +4,7 @@ import ArticleView from '../src/components/ArticleView';
 
 import renderer from 'react-test-renderer';
 
-const article = {id: 1, title: 'hello'};
+const article = {id: '1', title: 'hello'};
 const fakeCall = jest.fn();
 
 test('renders correctly', () => {
@@ -15,8 +15,8 @@ test('renders correctly', () => {
 });
 
 describe('ArticleView', () => {
-  describe('clicking Add Article', () => {
-    it('runs getData function', () => {
+  describe('clicking delete', () => {
+    it('runs deleteEntry function', () => {
       const {getByTestId} = render(
         <ArticleView article={article} deleteEntry={fakeCall} />,
       );

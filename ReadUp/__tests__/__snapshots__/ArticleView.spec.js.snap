@@ -16,11 +16,14 @@ exports[`renders correctly 1`] = `
       "backgroundColor": "#bbe1fa",
       "borderBottomWidth": 1,
       "borderColor": "#eee",
-      "marginVertical": "1%",
+      "borderRadius": 10,
+      "marginHorizontal": "2%",
+      "marginVertical": "3%",
       "opacity": 1,
       "padding": 20,
     }
   }
+  testID="listItem"
 >
   <View
     style={
@@ -35,6 +38,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "color": "#1b262c",
+          "fontFamily": "sans-serif-medium",
           "fontSize": 18,
         }
       }

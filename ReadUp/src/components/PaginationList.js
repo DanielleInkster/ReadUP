@@ -13,6 +13,8 @@ const PaginationList = ({articles, activeSlide}) => {
         inactiveDotStyle={{}}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
+        animatedDuration={100}
+        animatedTension={5}
       />
     );
   }, [articles, activeSlide]);

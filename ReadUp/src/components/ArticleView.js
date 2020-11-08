@@ -1,25 +1,29 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
 const ArticleView = ({article, deleteEntry}) => {
-  return (
-    <TouchableOpacity style={styles.articleItem}>
-      <View style={styles.articleItemView}>
-        <Text style={styles.text}>
-          {article.title.substring(0, 30).trim()}...
-        </Text>
-        <Icon
-          name="remove"
-          style={styles.icon}
-          onPress={() => deleteEntry(article)}
-          testID="removeArticle"
-        />
-      </View>
-    </TouchableOpacity>
-  );
+  const ArticleViewComponent = useMemo(() => {
+    return (
+      <TouchableOpacity style={styles.articleItem} testID="listItem">
+        <View style={styles.articleItemView}>
+          <Text style={styles.text}>
+            {article.title.substring(0, 30).trim()}...
+          </Text>
+          <Icon
+            name="remove"
+            style={styles.icon}
+            onPress={() => deleteEntry(article)}
+            testID="removeArticle"
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  }, [article, deleteEntry]);
+
+  return ArticleViewComponent;
 };
 
 const styles = StyleSheet.create({
@@ -48,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArticleView;
+export default React.memo(ArticleView);
