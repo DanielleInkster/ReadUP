@@ -4,7 +4,7 @@ import {View, Image, StyleSheet} from 'react-native';
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Image style={styles.image} source={require('../images/title.png')} />
+      <Image style={styles.image} source={require('../images/title.jpg')} />
     </View>
   );
 };

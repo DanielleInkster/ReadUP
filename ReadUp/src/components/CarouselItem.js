@@ -18,7 +18,7 @@ const CarouselItem = ({item, index}) => {
     return (
       <View key={index} style={styles.container}>
         <ImageBackground
-          source={require('../images/none.png')}
+          source={require('../images/none.jpg')}
           imageStyle={styles.imageStyle}
           style={styles.background}>
           <Image style={styles.image} source={{uri: item.image}} />
