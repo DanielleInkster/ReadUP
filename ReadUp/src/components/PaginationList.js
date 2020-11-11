@@ -25,8 +25,8 @@ export default PaginationList;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    paddingVertical: '5%',
-    backgroundColor: 'rgba(15, 76, 117, 0.75)',
+    paddingVertical: '4%',
+    backgroundColor: 'rgba(15, 76, 117, 1)',
   },
   dotStyle: {
     width: 10,
