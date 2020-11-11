@@ -9,7 +9,9 @@ import Edit from './src/containers/Edit';
 
 export default function App() {
   const [isEnabled, setIsEnabled] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const togglePress = () => setIsPressed((previousState) => !previousState);
 
   useEffect(() => {
     SplashScreen.hide();
@@ -18,7 +20,8 @@ export default function App() {
   return (
     <DatabaseProvider database={database}>
       <View style={styles.container}>
-        <Header />
+        <Header togglePress={togglePress} />
+        {isPressed === true && console.log("i'm hit!")}
         <Switch
           style={styles.switch}
           trackColor={{true: '#bbe1fa'}}

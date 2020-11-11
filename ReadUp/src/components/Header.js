@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 
-const Header = () => {
+const Header = ({togglePress}) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={()=>console.log("i'm hit!")}>
+      <TouchableOpacity onPress={() => togglePress()}>
         <Image style={styles.image} source={require('../images/title.jpg')} />
       </TouchableOpacity>
     </View>
