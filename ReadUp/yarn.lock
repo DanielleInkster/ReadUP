@@ -1878,9 +1878,9 @@ bluebird@^3.5.4:
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
 blueimp-md5@^2.5.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.17.0.tgz#f4fcac088b115f7b4045f19f5da59e9d01b1bb96"
-  integrity sha512-x5PKJHY5rHQYaADj6NwPUR2QRCUVSggPzrUKkeENpj871o9l9IefJbO2jkT5UvYykeOK9dx0VmkIo6dZ+vThYw==
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.18.0.tgz#1152be1335f0c6b3911ed9e36db54f3e6ac52935"
+  integrity sha512-vE52okJvzsVWhcgUHOv+69OG3Mdg151xyn41aVQN/5W5S+S43qZhxECtYLAEHMSFWX6Mv5IZrzj3T5+JqXfj5Q==
 
 boolbase@~1.0.0:
   version "1.0.0"
@@ -2217,10 +2217,10 @@ color-name@^1.0.0, color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-color-string@^1.5.2:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.5.3.tgz#c9bbc5f01b58b5492f3d6857459cb6590ce204cc"
-  integrity sha512-dC2C5qeWoYkxki5UAXapdjqO672AM4vZuPGRQfO8b5HKuKGBbKWpITyDYN7TOFKvRW7kOgAn3746clDBMDJyQw==
+color-string@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.5.4.tgz#dd51cd25cfee953d138fe4002372cc3d0e504cb6"
+  integrity sha512-57yF5yt8Xa3czSEW1jfQDE79Idk0+AkN/4KWad6tbdxUmAs3MvjxlWSWD4deYytcRfoZ9nhKyFl1kj5tBvidbw==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
@@ -2231,12 +2231,12 @@ color-support@^1.1.3:
   integrity sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==
 
 color@~3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
-  integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.1.3.tgz#ca67fb4e7b97d611dcde39eceed422067d91596e"
+  integrity sha512-xgXAcTHa2HeFCGLE9Xs/R82hujGtu9Jd9x4NW3T34+OMs7VoPsjwzRczKHvTAHeJwWFwX5j15+MgAppE8ztObQ==
   dependencies:
     color-convert "^1.9.1"
-    color-string "^1.5.2"
+    color-string "^1.5.4"
 
 colorette@^1.0.7:
   version "1.2.1"
@@ -2363,11 +2363,10 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     parse-json "^4.0.0"
 
 create-react-class@^15.6.3:
-  version "15.6.3"
-  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
-  integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
+  integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
   dependencies:
-    fbjs "^0.8.9"
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
@@ -2831,7 +2830,14 @@ escodegen@^1.14.1, escodegen@^1.6.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.0.0, eslint-config-prettier@^6.10.1:
+eslint-config-prettier@^6.0.0:
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
+  integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
+  dependencies:
+    get-stdin "^6.0.0"
+
+eslint-config-prettier@^6.10.1:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.11.0.tgz#f6d2238c1290d01c859a8b5c1f7d352a0b0da8b1"
   integrity sha512-oB8cpLWSAjOVFEJhhyMZh6NOEOtBVziaqdDQ86+qhDHFbZXoRTM7pNSvFRfW/W/L/LrQ38C99J5CGuRBBzBsdA==
@@ -3212,7 +3218,7 @@ fbjs-scripts@^1.1.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.4, fbjs@^0.8.9:
+fbjs@^0.8.4:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -5438,10 +5444,10 @@ native-base-shoutem-theme@0.3.1:
     lodash "^4.17.14"
     prop-types "^15.5.10"
 
-native-base@^2.13.13:
-  version "2.13.13"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.13.13.tgz#431735005151f456c0faee6f00abe00b1e049dc9"
-  integrity sha512-/JOCe/iqnIzto2QJBw/p/PRtJNB8G+NdLOWUYB43TZFWEk6aun1CRBQ0eJ5ibI0bL2aL2ytU2k9Wdp0HxM9Ong==
+native-base@^2.13.14:
+  version "2.13.14"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.13.14.tgz#57a71d871bb1df96122bf13af6298b8c22f48536"
+  integrity sha512-k9E1FX6kgLjp6Du7jOA/p6viKrmMrG1BelN4ui15hZBObBd+s0ExI5oh8U/Wa9U++hBHuKeHhzDF9OVqOo4t2w==
   dependencies:
     "@codler/react-native-keyboard-aware-scroll-view" "1.0.0"
     blueimp-md5 "^2.5.0"
@@ -6168,9 +6174,9 @@ react-native-gesture-handler@^1.7.0:
     prop-types "^15.7.2"
 
 react-native-iphone-x-helper@^1.0.3:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
-  integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
+  integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
 react-native-snap-carousel@^3.9.1:
   version "3.9.1"
