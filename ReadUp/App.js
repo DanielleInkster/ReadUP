@@ -5,11 +5,14 @@ import {View, Switch, StyleSheet} from 'react-native';
 import {database} from './index.js';
 import Header from './src/components/Header';
 import DisplayPage from './src/pages/DisplayPage';
+import About from './src/pages/About';
 import Edit from './src/containers/Edit';
 
 export default function App() {
   const [isEnabled, setIsEnabled] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const togglePress = () => setIsPressed((previousState) => !previousState);
 
   useEffect(() => {
     SplashScreen.hide();
@@ -18,16 +21,19 @@ export default function App() {
   return (
     <DatabaseProvider database={database}>
       <View style={styles.container}>
-        <Header />
-        <Switch
-          style={styles.switch}
-          trackColor={{true: '#bbe1fa'}}
-          thumbColor={'#f0a500'}
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-        {isEnabled === true && <Edit />}
-        {isEnabled === false && <DisplayPage />}
+        <Header togglePress={togglePress} />
+        {isPressed === true && <About />}
+        {isPressed === false && (
+          <Switch
+            style={styles.switch}
+            trackColor={{true: '#bbe1fa'}}
+            thumbColor={'#f0a500'}
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        )}
+        {isPressed === false && isEnabled === true && <Edit />}
+        {isPressed === false && isEnabled === false && <DisplayPage />}
       </View>
     </DatabaseProvider>
   );

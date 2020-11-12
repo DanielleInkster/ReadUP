@@ -17,14 +17,13 @@
     "@nozbe/watermelondb": "^0.18.0",
     "@nozbe/with-observables": "^1.0.5",
     "cheerio-without-node-native": "0.20.2",
-    "native-base": "^2.13.13",
+    "native-base": "^2.13.14",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-splash-screen": "^3.2.0",
-    "react-native-vector-icons": "^7.0.0",
-    "react-navigation": "^4.4.0"
+    "react-native-vector-icons": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
