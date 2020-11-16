@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Linking,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Linking, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
@@ -14,7 +7,7 @@ Icon.loadFont();
 const AttributionsItem = ({title, license, url}) => {
   return (
     <TouchableOpacity style={styles.articleItem}>
-      <SafeAreaView style={styles.articleItemView}>
+      <View style={styles.articleItemView}>
         <View style={styles.articleTextView}>
           <Text style={styles.heading}>{title}</Text>
           <Text style={styles.text}>Provided under the {license} license.</Text>
@@ -24,7 +17,7 @@ const AttributionsItem = ({title, license, url}) => {
           style={styles.icon}
           onPress={() => Linking.openURL(url)}
         />
-      </SafeAreaView>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -32,6 +25,7 @@ const AttributionsItem = ({title, license, url}) => {
 const styles = StyleSheet.create({
   articleItem: {
     padding: 10,
+    margin: 0.25,
     borderRadius: 10,
     backgroundColor: '#bbe1fa',
     borderBottomWidth: 1,
