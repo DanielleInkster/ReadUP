@@ -24,6 +24,7 @@ export default function Accordian({data}) {
       <TouchableOpacity style={styles.row} onPress={() => toggleExpand()}>
         <Text style={[styles.heading]}>Attributions</Text>
         <Icon
+          style={styles.icon}
           name={
             isExpanded === true ? 'keyboard-arrow-up' : 'keyboard-arrow-down'
           }
@@ -88,5 +89,8 @@ const styles = StyleSheet.create({
     paddingRight: 18,
     alignItems: 'center',
     backgroundColor: '#0f4c75',
+  },
+  icon: {
+    color: '#bbe1fa',
   },
 });
