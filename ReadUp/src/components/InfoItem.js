@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const InfoItem = ({title, url, name}) => {
   return (
     <TouchableOpacity style={styles.row} onPress={() => Linking.openURL(url)}>
-      <Text style={[styles.heading]}>{title}</Text>
+      <Text style={styles.heading}>{title}</Text>
       <Icon name={name} size={30} style={styles.icon} />
     </TouchableOpacity>
   );

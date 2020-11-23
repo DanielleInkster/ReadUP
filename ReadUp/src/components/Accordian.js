@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {
   View,
+  SafeAreaView,
   TouchableOpacity,
   Text,
   FlatList,
@@ -20,7 +21,7 @@ export default function Accordian({data}) {
   }
 
   return (
-    <View>
+    <SafeAreaView>
       <TouchableOpacity style={styles.row} onPress={() => toggleExpand()}>
         <Text style={[styles.heading]}>Attributions</Text>
         <Icon
@@ -31,27 +32,24 @@ export default function Accordian({data}) {
           size={30}
         />
       </TouchableOpacity>
-      <View style={styles.parentHr} />
+      <SafeAreaView />
       {isExpanded === true && (
-        <View style={{}}>
+        <SafeAreaView>
           <FlatList
             data={data}
-            numColumns={1}
-            scrollEnabled={false}
             renderItem={({item}) => (
-              <View>
+              <SafeAreaView>
                 <AttributionsItem
                   title={item.title}
                   license={item.license}
                   url={item.url}
                 />
-                <View style={styles.childHr} />
-              </View>
+              </SafeAreaView>
             )}
           />
-        </View>
+        </SafeAreaView>
       )}
-    </View>
+    </SafeAreaView>
   );
 
   function toggleExpand() {
@@ -61,9 +59,6 @@ export default function Accordian({data}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   button: {
     width: '100%',
     height: 54,

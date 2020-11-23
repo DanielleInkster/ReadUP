@@ -25,10 +25,10 @@ const AttributionsItem = ({title, license, url}) => {
 const styles = StyleSheet.create({
   articleItem: {
     padding: 10,
-    margin: 0.25,
+    margin: 1,
     borderRadius: 10,
     backgroundColor: '#bbe1fa',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.25,
     borderColor: 'slategray',
     marginHorizontal: '2%',
   },
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+    padding: '1%',
   },
   text: {
     color: '#0f4c75',
