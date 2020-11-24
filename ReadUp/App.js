@@ -5,7 +5,7 @@ import {View, Switch, StyleSheet} from 'react-native';
 import {database} from './index.js';
 import Header from './src/components/Header';
 import DisplayPage from './src/pages/DisplayPage';
-import About from './src/pages/About';
+import AboutPage from './src/pages/AboutPage';
 import Edit from './src/containers/Edit';
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
     <DatabaseProvider database={database}>
       <View style={styles.container}>
         <Header togglePress={togglePress} />
-        {isPressed === true && <About />}
+        {isPressed === true && <AboutPage />}
         {isPressed === false && (
           <Switch
             style={styles.switch}
