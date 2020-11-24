@@ -4,13 +4,12 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Text,
-  FlatList,
   StyleSheet,
   LayoutAnimation,
   Platform,
   UIManager,
 } from 'react-native';
-import AttributionsItem from './AttributionsItem';
+import AttributionsList from './AttributionsList';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Accordian({data}) {
@@ -21,7 +20,7 @@ export default function Accordian({data}) {
   }
 
   return (
-    <SafeAreaView>
+    <View>
       <TouchableOpacity style={styles.row} onPress={() => toggleExpand()}>
         <Text style={[styles.heading]}>Attributions</Text>
         <Icon
@@ -32,24 +31,10 @@ export default function Accordian({data}) {
           size={30}
         />
       </TouchableOpacity>
-      <SafeAreaView />
-      {isExpanded === true && (
-        <SafeAreaView>
-          <FlatList
-            data={data}
-            renderItem={({item}) => (
-              <SafeAreaView>
-                <AttributionsItem
-                  title={item.title}
-                  license={item.license}
-                  url={item.url}
-                />
-              </SafeAreaView>
-            )}
-          />
-        </SafeAreaView>
-      )}
-    </SafeAreaView>
+      <SafeAreaView>
+        {isExpanded === true && <AttributionsList data={data} />}
+      </SafeAreaView>
+    </View>
   );
 
   function toggleExpand() {
